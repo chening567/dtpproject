@@ -1,0 +1,40 @@
+.nav_bar { 
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20%;
+    background-color: darkgrey;
+    align-items: center ;
+}
+
+.nav_links {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    font-family: sans-serif;
+    font-size: large;
+    
+}
+
+.nav_links li a {
+    display: inline-block;
+    padding: 0 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav_links li a:hover {
+    color: red;
+    transition: all 0.2s;
+}
+
+
+img {
+    max-width: 100px;
+}
+
+li{
+    text-decoration: none;
+
+}
+
+

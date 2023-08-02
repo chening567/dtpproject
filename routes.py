@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request, send_file
 
 from io import BytesIO
+from werkzeug.utils import secure_filename
+import os
 import sqlite3
 
 
@@ -26,29 +28,22 @@ def contact():
     return render_template("contact.html")
 
 
-
+app.config["Image_path"] = "H:/dtpproject-master/dtpproject-master/static/images"
 
 @app.route("/fileupload", methods=['GET', 'POST'])
 def fileupload(): 
     if request.method == 'POST': 
-        conn = sqlite3.connect("wallpapers.db")
-        cur = conn.cursor()
         tag = request.form['tag']
         file = request.files['filename']
-        bfile = file.read()
+        extension = file.filename.split('.')
         
-        data = cur.execute("INSERT INTO photos ('tag', 'image') VALUES (?, ?)", (tag, bfile,))
-        cur.connection.commit()   
+        file.save(os.path.join(app.config["Image_path"], (tag  + "." + extension[1])))
+        
+
+        
     return render_template("fileupload.html")
 
-#* @app.route("/readfile")
-#def readfile():
-    #conn = sqlite3.connect("wallpapers.db")
-   # cur = conn.cursor()
-  #  rec = cur.execute("SELECT image FROM photos").fetchall()
-    
- #   print(rec[2])
-#    return send_file(BytesIO(rec[2]), attachment_filename="brrr", as_attachment=True)
+
 
 @app.route('/download/<upload_id>')
 def download(upload_id):

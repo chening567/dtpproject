@@ -28,7 +28,8 @@ def contact():
     return render_template("contact.html")
 
 
-app.config["Image_path"] = "C:/Users/cheni/Documents/dtpproject-/dtpproject/static/images"
+app.config["Image_path1"] = "C:/Users/cheni/Documents/dtpproject-/dtpproject/static/images"
+app.config["Image_path2"] = "H:\dtpproject-master\dtpproject-master\static\images"
 
 @app.route("/fileupload", methods=['GET', 'POST'])
 def fileupload(): 
@@ -38,8 +39,8 @@ def fileupload():
         tag = request.form['tag']
         file = request.files['filename']
         extension = file.filename.split('.')
-        file.save(os.path.join(app.config["Image_path"], (tag  + "." + extension[1])))
-        data = cur.execute("INSERT INTO photos ('image') VALUES (?)", (file.filename,))
+        file.save(os.path.join(app.config["Image_path2"], (tag  + "." + extension[1])))
+        data = cur.execute("INSERT INTO photos ('image') VALUES (?)", (tag + "." + extension[1],))
         cur.connection.commit()  
     return render_template("fileupload.html")
 
@@ -47,8 +48,11 @@ def fileupload():
 def viewfiles(): 
     conn = sqlite3.connect("wallpapers.db")
     cur = conn.cursor()
-    data = cur.execute("").fetchall
+    data = cur.execute("SELECT image FROM photos").fetchall()
 
+    print(data)
+
+    return render_template("fileupload.html", data=data,)
 
 
 if __name__ == "__main__": 

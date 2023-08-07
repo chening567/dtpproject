@@ -1,7 +1,41 @@
-<form action="/fileupload" method="post" enctype="multipart/form-data">
-    <input type="file" id="myFile" name="filename">
-    <textarea name="tag" id="tag" cols="20" rows="1"></textarea>
-    <input type="submit">
-</form>
-<a href="/readfile">dsadsa</a>
+{% extends 'layout.html' %}
+{% block content %}
+    <div id="head"></div>
+    <div id="content">
+        <form id="uploadFile" action="/fileupload" method="post" enctype="multipart/form-data">
+            <label for="">
+                <h4>File Input</h1>
+            </label>
+            <label for="">
+                <input type="file" id="myFile" name="filename">
+            </label>
+            <label for="">
+                <textarea name="tag" id="tag" cols="20" rows="1"></textarea>
+            </label>
+            <label for="">
+                <input type="submit">
+            </label>
+            {% if isvalid == "OK" %}
+                <p>OK</p>
+            {% elif isvalid == "Error" %}
+                <p>ERROR</p>
+            {% else %}
+                 <p>NO FILE</p>
+            {% endif %}
+            
+            
+        </form>
+        <a href="/readfile">readfile</a>
+        <a href="/viewfiles">viewfile</a>
+        
+       
+    </div>
+    
+{% for i in data %}
+    <img src="static/images/{{ i[0] }}" alt="">
+    <a href="/viewfiles/{{i[0]}}">{{i[0]}}</a>
+{% endfor %}
+<img src="" alt="">
+
+{% endblock %}
 

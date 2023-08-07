@@ -1,3 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap');
+
 * {
     margin: 0;
+}
+
+img { 
+    
+    max-width: 500px;
+}
+
+#head {
+    padding: 50px;
+}
+
+#content { 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+
+#uploadFile { 
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+input, textarea { 
+    font-family: 'Roboto', sans-serif;
+}
+
+label {
+    margin-bottom: 20px;
 }

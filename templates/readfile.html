@@ -1,7 +1,32 @@
 {% extends 'layout.html' %}
 {% block content %} 
-<a href=""><h1>Read file</h1></a>
-<div>
-    <img src="{{data[2]}}" alt="dsadas">
-</div>
+<a href="/viewfiles"><h1>Read file</h1></a>
+{% for i in data %}
+    <img src="static/images/{{ i[1] }}" alt="">
+    <a href="/viewfiles/{{i[1]}}">Download</a>
+    <a href="/delete/{{i[1]}}">Delete</a>
+
+    <h2>{{i[2]}}</h2>
+    <div class="Upvote">
+        <a onclick="setCookieAndRedirect()" href="/submitreview/{{i[1]}}/+1">Upvote</a>
+    </div>
+    <div class="Downvote">
+        <a onclick="setCookieAndRedirect()" href="/submitreview/{{i[1]}}/-1">Downvote</a>
+    </div>
+    
+    
+    
+    
+{% endfor %}
+<h2>{{cookie}}</h2>
+
+<script>
+    function setCookieAndRedirect() {
+        fetch('/setcookie') 
+            .then(response => {
+                window.location.href = '/viewfiles';
+            });
+    }
+</script>
+
 {% endblock %}

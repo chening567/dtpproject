@@ -8,7 +8,7 @@ img {
     
     max-width: 500px;
 }
-p
+
 #head {
     padding: 50px;
 }
@@ -29,10 +29,83 @@ p
     
 }
 
+.buttons {
+    padding: 20px;
+    text-align: center;
+}
+
 input, textarea { 
     font-family: 'Roboto', sans-serif;
 }
 
 label {
     margin-bottom: 20px;
+}
+
+.imageBox {
+ 
+       
+    text-align: center;
+    
+}
+
+
+.ratings {
+   display: flex;
+   justify-content: center;
+}
+
+.upvote-arrow { 
+    
+    height: 20px;
+    width: 20px;
+    border-top: 4px solid black;
+    border-left: 4px solid black ;
+    transform: rotate(45deg);
+    left: 27.5px;
+    top:35px;
+}
+
+.downvote-arrow {
+  
+    height: 20px;
+    width: 20px;
+    border-top: 4px solid black;
+    border-left: 4px solid black ;
+    transform: rotate(225deg);
+    left: 27.5px;
+    top:35px;
+}
+
+.upvote-arrow:hover { 
+    border-top: 4px solid rgb(0, 255, 17);
+    border-left: 4px solid rgb(0, 255, 17);
+}
+
+.downvote-arrow:hover {
+    border-top: 4px solid rgb(240, 0, 0);
+    border-left: 4px solid rgb(240, 0, 0);
+}
+
+.ratingText{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.images { 
+    max-width: 500px;
+    margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+        flex: calc(33% - 42px);
+
+}
+
+.imageBox { 
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }

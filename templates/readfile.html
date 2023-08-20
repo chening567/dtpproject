@@ -1,32 +1,51 @@
 {% extends 'layout.html' %}
 {% block content %} 
-<a href="/viewfiles"><h1>Read file</h1></a>
-{% for i in data %}
-    <img src="static/images/{{ i[1] }}" alt="">
-    <a href="/viewfiles/{{i[1]}}">Download</a>
-    <a href="/delete/{{i[1]}}">Delete</a>
 
-    <h2>{{i[2]}}</h2>
-    <div class="Upvote">
-        <a onclick="setCookieAndRedirect()" href="/submitreview/{{i[1]}}/+1">Upvote</a>
-    </div>
-    <div class="Downvote">
-        <a onclick="setCookieAndRedirect()" href="/submitreview/{{i[1]}}/-1">Downvote</a>
-    </div>
+
+<h1>Photos</h1>
+<div class="imageBox">
+    {% for i in data %}
+    <div class="images">
+
+    
+    <img src="/static/images/{{i[1]}}" alt="">
+    <a href="/download/{{i[1]}}">Download</a>
+    <a href="/delete/{{i[1]}}">Delete</a>
+    
+    {% if imageurl == i[1]%}
+        <h2 class="ratingText">Rating: {{i[2]}}</h2>
+        <h2>Youve Already Voted</h2>
+    {% else %}
+        <div class="ratings">
+            
+            <div class="buttons">
+                <a href="/submitreview/{{i[1]}}/+1"><h1 class="upvote-arrow"></h1></a> 
+                <a href="/submitreview/{{i[1]}}/-1"><h1 class="downvote-arrow"></h1></a>
+            </div>
+            <h2 class="ratingText">Rating: {{i[2]}}</h2>
+            
+        </div>
+            
+            
+            
+        
+    {% endif %}
+    
+    
+   
     
     
     
-    
+</div> 
 {% endfor %}
-<h2>{{cookie}}</h2>
+
+</div>
+
+
+
 
 <script>
-    function setCookieAndRedirect() {
-        fetch('/setcookie') 
-            .then(response => {
-                window.location.href = '/viewfiles';
-            });
-    }
+  
 </script>
 
 {% endblock %}

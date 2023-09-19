@@ -20,14 +20,85 @@ img {
     
 }
 
+.fileUpload::file-selector-button { 
+    width: 40%;
+    background-color: #949e94;
+    color: white;
+    padding: 14px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight:540;
+    border: solid 1px black;
+    
+   
+
+}
+
+
+.fileUpload::file-selector-button:hover { 
+    background-color: #4CAF50;  
+    border: solid 2px black ;
+    
+    border-radius: 1px;
+    transition: all 0.2s;
+}
+
+.fileUpload-.buttons { 
+    content: "chosen";
+}
+
 #uploadFile { 
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: 0 auto;
+    font-size: large;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
     
 }
+
+input[type=submit] {
+    width: 100%;
+    background-color: #949e94;
+    color: white;
+    padding: 14px 20px;
+    margin: 0px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    border: solid 1px black ;
+}
+
+input[type=submit]:hover { 
+    background-color: #4CAF50;  
+    border: solid 2px black ;
+    
+    border-radius: 1px;
+   
+}
+
+
+.checkRight {
+    display: flex;
+    
+}
+
+.textBox {
+    width: 100%;
+    padding: 14px 20px;
+    margin: 0px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+  }
+  
 
 .buttons {
     padding: 20px;
@@ -78,13 +149,15 @@ label {
 }
 
 .upvote-arrow:hover { 
-    border-top: 4px solid rgb(0, 255, 17);
-    border-left: 4px solid rgb(0, 255, 17);
+    border-top: 4px solid #4CAF50;
+    border-left: 4px solid #4CAF50;
+    transition: all 0.2s;
 }
 
 .downvote-arrow:hover {
     border-top: 4px solid rgb(240, 0, 0);
     border-left: 4px solid rgb(240, 0, 0);
+    transition: all 0.2s;
 }
 
 .ratingText{ 
@@ -96,10 +169,11 @@ label {
 
 .images { 
     max-width: 500px;
+    
     margin: 10px;
-        padding: 10px;
-        border: 1px solid black;
-        flex: calc(33% - 42px);
+    padding: 10px;
+    border: 1px solid black;
+   
 
 }
 
@@ -108,4 +182,71 @@ label {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.image { 
+    width: 400px;
+}
+
+.radomLink { 
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+.radomLink:hover{
+    transition: all 0.2s;
+    background-color: #4CAF50;
+}
+
+.dButton { 
+    text-align: center;
+    
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+.dButton:hover{
+    transition: all 0.2s;
+    background-color: #4CAF50;
+}
+
+.luckydiv {
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.password {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    font-size: large;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 18%;
+    text-align: center;
+    
+}
+
+.password-submit { 
+    max-width: 100%;
+}
+
+.password-input { 
+    width: 80%;
+    padding: 14px 20px;
+    margin: 0px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    resize: none;
 }

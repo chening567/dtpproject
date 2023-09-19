@@ -1,51 +1,34 @@
-{% extends 'layout.html' %}
-{% block content %} 
-
-
-<h1>Photos</h1>
-<div class="imageBox">
-    {% for i in data %}
-    <div class="images">
-
-    
-    <img src="/static/images/{{i[1]}}" alt="">
-    <a href="/download/{{i[1]}}">Download</a>
-    <a href="/delete/{{i[1]}}">Delete</a>
-    
-    {% if imageurl == i[1]%}
-        <h2 class="ratingText">Rating: {{i[2]}}</h2>
-        <h2>Youve Already Voted</h2>
-    {% else %}
-        <div class="ratings">
-            
-            <div class="buttons">
-                <a href="/submitreview/{{i[1]}}/+1"><h1 class="upvote-arrow"></h1></a> 
-                <a href="/submitreview/{{i[1]}}/-1"><h1 class="downvote-arrow"></h1></a>
-            </div>
-            <h2 class="ratingText">Rating: {{i[2]}}</h2>
-            
-        </div>
-            
-            
-            
+    {% extends 'layout.html' %}
+    {% block content %} 
         
-    {% endif %}
+    <div class="imageBox">
+        {% for i in data %}
+        <div class="images">
+        <img class="image" src="/static/images/{{i[1]}}" alt="">
+        <div>
+            
+            <a href="/download/{{i[1]}}"><button class="   ">Download</button></a>
+        </div>
+        {% if imageurl == i[1]%} 
+            <h2 class="ratingText">Rating: {{i[2]}}</h2>
+            <h2>Youve Already Voted</h2>
+        {% else %}
+            <div class="ratings">
+                
+                <div class="buttons">
+                    <a href="/submitreview/{{i[1]}}/+1"><h1 class="upvote-arrow"></h1></a> 
+                    <a href="/submitreview/{{i[1]}}/-1"><h1 class="downvote-arrow"></h1></a>
+                </div>
+                <h2 class="ratingText">Rating: {{i[2]}}</h2>
+                
+            </div>
+        {% endif %}
+        </div> 
+    {% endfor %}
+
+    </div>
+    <script>
     
-    
-   
-    
-    
-    
-</div> 
-{% endfor %}
+    </script>
 
-</div>
-
-
-
-
-<script>
-  
-</script>
-
-{% endblock %}
+    {% endblock %}

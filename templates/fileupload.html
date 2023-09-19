@@ -1,26 +1,41 @@
 {% extends 'layout.html' %}
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div id="head"></div>
     <div id="content">
         <form id="uploadFile" action="/fileupload" method="post" enctype="multipart/form-data">
             <label for="">
-                <h4>File Input</h1>
+                <h3>File Input</h1>
             </label>
             <label for="">
-                <input type="file" id="myFile" name="filename">
+
+                <input class="fileUpload" type="file" id="myFile" name="filename" required>
+                
             </label>
             <label for="">
-                <textarea name="tag" id="tag" cols="20" rows="1"  placeholder="Input Name Here" ></textarea>
+                <textarea class="textBox" name="tag" id="tag" cols="20" rows="1"  placeholder="Input Name Here" required ></textarea>
             </label>
             <label for="">
                 <input type="submit">
             </label>
+            <label for="">
+                <input type="checkbox" name="" id="" required>
+                <p>I agree that the image I am uploading is my own</p>
+            </label>
             {% if isvalid == "OK" %}
-                <p>OK</p>
+                <div class="checkRight">
+                    <i class="fa fa-check" style="font-size:36px"></i>
+                    <h4>Success</h4>
+                </div>
+                
             {% elif isvalid == "Error" %}
-                <p>ERROR</p>
+                <div class="checkWrong">
+                    <i class="fa fa-close" style="font-size:36px"></i>
+                    <h4>Invalid File Type </h4>
+                </div>
+               
             {% else %}
-                 <p>NO FILE</p>
+                
             {% endif %}
             
             
@@ -30,7 +45,6 @@
     </div>
     
 
-<img src="" alt="">
 
 {% endblock %}
 

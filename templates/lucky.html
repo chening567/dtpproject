@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% block content %} 
+
+
+<div class="luckydiv">
+    <a href="/lucky/none"><button class="radomLink" ><h2>I'm Feeling Lucky</h2></button></a>
+</div>
+
+<div class="imageBox">
+    
+    <div class="images">
+
+    
+    <img class="image" src="/static/images/{{data[randomVal -1 ][1]}}" alt="">
+    <div>
+        <a href="/download/{{data[randomVal -1 ][1]}}">Download</a>
+    </div>
+    
+   
+    
+    {% if imageurl == data[randomVal]%}
+        
+        <h2>Youve Already Voted</h2>
+    {% else %}
+        <div class="ratings">
+            
+            <div class="buttons">
+                <a href="/submitreview/{{data[randomVal]}}/+1"><h1 class="upvote-arrow"></h1></a> 
+                <a href="/submitreview/{{data[randomVal]}}/-1"><h1 class="downvote-arrow"></h1></a>
+            </div>
+            <h2 class="ratingText">Rating: {{data[2][2]}}</h2>
+            
+        </div>
+            
+            
+            
+        
+    {% endif %}
+    
+    
+   
+    
+    
+    
+</div> 
+
+
+</div>
+
+
+
+<script>
+  
+</script>
+
+{% endblock %}

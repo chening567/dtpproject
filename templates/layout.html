@@ -12,10 +12,14 @@
     <nav>
         {% include 'nav.html' %}
     </nav>
-    {% block content %}
-    {% include 'home.html' %}
-    
-    {% endblock %}
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+   
 
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
 </body>
 </html>

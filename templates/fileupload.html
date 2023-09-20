@@ -13,12 +13,12 @@
                 
             </label>
             <label for="">
-                <textarea class="textBox" name="tag" id="tag" cols="20" rows="1"  placeholder="Input Name Here" required ></textarea>
+                <textarea maxlength="20" class="textBox" name="tag" id="tag" cols="20" rows="1"  placeholder="Input Name Here"required ></textarea>
             </label>
             <label for="">
                 <input type="submit">
             </label>
-            <label for="">
+            <label class="agreement" for="">
                 <input type="checkbox" name="" id="" required>
                 <p>I agree that the image I am uploading is my own</p>
             </label>
@@ -28,6 +28,11 @@
                     <h4>Success</h4>
                 </div>
                 
+            {% elif isvalid == "Name" %}
+                <div class="checkWrong">
+                    <i class="fa fa-close" style="font-size:36px"></i>
+                    <h4>Choose different Name</h4>
+                </div>
             {% elif isvalid == "Error" %}
                 <div class="checkWrong">
                     <i class="fa fa-close" style="font-size:36px"></i>

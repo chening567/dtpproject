@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="errorContainter">
+    <h1>Unexpected error</h1>
+    {%if errorCode == 413%}
+        <h3 class="text">File too Large</h3>
+        <h3 class="text">Insert a smaller size file</h3>
+        <p class="text">{{errorCode}}</p>
+    {%elif errorCode == 404%}
+        <h3 class="text">Site Error</h3>
+        <h3 class="text">please try again or contact server admin for help</h3>
+        <p class="text">{{errorCode}}</p>
+    {%elif errorCode == 413%}
+        <h3 class="text">Site Error</h3>
+        <h3 class="text">please try again or contact server admin for help</h3>
+        <p class="text">{{errorCode}}</p>
+    {%elif errorCode == 403%}
+        <h2 class="text">Database Error</h2> 
+        <h3 class="text">Please try again or contact server admin for help</h3>
+        <p class="text">{{errorCode}}</p>
+    {%endif%}
+    <a  href="/"><button class="dButton">Go To Home Page</button></a>
+</div>
+{% endblock %}
